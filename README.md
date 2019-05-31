@@ -2,4 +2,6 @@
 
 The Net Ninja teaches the basics on Firebase Firestore
 
-YouTube link: https://youtu.be/4d-gIPGzmK4
+YouTube link: https://youtu.be/zpQle4SBRfg
+
+## Lesson 4 - Saving Data
