@@ -39,7 +39,7 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();  // Constant db refers to the database.
-      db.settings({ timestampInSnapshots = true }); // To prevent console warnings.
+      db.settings({ timestampsInSnapshots = true }); // To prevent console warnings.
     </script>
 
     <script src="app.js"></script>
