@@ -29,11 +29,11 @@ function renderCafe(doc) {
 
 // Get the cafes collection and docs.
 // where() queries a document.
-db.collection('cafes').where('city', '==', 'Manchester').orderBy('name').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-      renderCafe(doc);
-    })
-});
+// db.collection('cafes').where('city', '==', 'Manchester').orderBy('name').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//       renderCafe(doc);
+//     })
+// });
 
 // Save data.
 form.addEventListener('submit', (e) => {
@@ -44,4 +44,20 @@ form.addEventListener('submit', (e) => {
   });
   form.name.value = ''; // Clear values from the input fields.
   form.city.value = '';
+})
+
+// Real-time listener
+db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
+  let changes = snapshot.docChanges();
+  changes.forEach(change => {
+    if(change.type == 'added') {
+      renderCafe(change.doc);
+    } else if (change.type == 'removed') {
+      // When the listener fires and finds 'removed' in doc, this will
+      // get the id of the doc that was removed in firestore from DOM.
+      let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+      // This deletes the removed document from the DOM.
+      cafeList.removeChild(li);
+    }
+  })
 })
