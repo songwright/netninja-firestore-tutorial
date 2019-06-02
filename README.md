@@ -2,4 +2,6 @@
 
 The Net Ninja teaches the basics on Firebase Firestore
 
-YouTube link: https://youtu.be/4d-gIPGzmK4
+YouTube link: https://youtu.be/RdnPAOA6qfw
+
+## Lesson 8 - Real-time Data
