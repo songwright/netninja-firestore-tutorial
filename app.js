@@ -19,7 +19,7 @@ function renderCafe(doc) {
 
   cafeList.appendChild(li);
 
-  // Delete data.
+  // Delete data by clicking the X (crosss) gadget.
   cross.addEventListener('click', (e) => {
     e.stopPropagation(); // Prevent event from bubbling up.
     let id = e.target.parentElement.getAttribute('data-id');
@@ -61,3 +61,14 @@ db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
     }
   })
 })
+
+// Update data with .update()
+// db.collection('cafes').doc('WJsHc8652yLZts8iv0vN').update({
+//   city: 'New York'
+// })
+
+// .set will override existing properies completely.
+// db.collection('cafes').doc('WJsHc8652yLZts8iv0vN').set({
+//   name: 'Shaun\'s Coffee Emporium',
+//   city: 'Liverpool'
+// })
