@@ -28,7 +28,8 @@ function renderCafe(doc) {
 }
 
 // Get the cafes collection and docs.
-db.collection('cafes').get().then((snapshot) => {
+// where() queries a document.
+db.collection('cafes').where('city', '<', 'N').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
       renderCafe(doc);
     })
